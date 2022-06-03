@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LogicTestController;
+use App\Http\Controllers\TechnicalTestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,11 +25,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
-    Route::get('/prueba-logica', function () {
-        return view('prueba-logica');
-    })->name('prueba-logica');
+    Route::get('/prueba-logica', [LogicTestController::class,'index'])->name('prueba-logica');
 
-    Route::get('/prueba-tecnica', function () {
-        return view('prueba-tecnica');
-    })->name('prueba-tecnica');
+    Route::get('/prueba-tecnica', [TechnicalTestController::class,'index'])->name('prueba-tecnica');
 });
