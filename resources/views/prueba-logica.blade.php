@@ -47,7 +47,22 @@
                     </p>
                 </div>
                 <hr>
-
+                <div class="uppercase text-center font-bold">
+                    <p>Item #3 (Número que más se repite y cantidad)</p>
+                </div>
+                <div class="text-center">
+                    <p class="uppercase">
+                        los valores de myArray son: @json($myArrayItemThree)
+                    </p>
+                </div>
+                <div class="text-center">
+                    <p class="uppercase font-bold">
+                       @foreach ($maxRepeat as $item)
+                           {{'Número más repetido: '.$item['number'] . ' Cantidad de repeticiónes: ' . $item['repeat']}}
+                       @endforeach
+                    </p>
+                </div>
+                <hr>
             </div>
         </div>
     </div>

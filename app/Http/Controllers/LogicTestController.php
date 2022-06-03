@@ -15,9 +15,27 @@ class LogicTestController extends Controller
     {
         $myArrayItemOne = $this->getRandomNumbers(1, 100, 5);
         $myArrayItemTwo = $this->getRandomNumbers(1, 5, 10);
+        $myArrayItemThree = $this->getRandomNumbers(1, 5, 10);
         $highNumber = max($myArrayItemOne);
         $histogram = $this->getHistogram($myArrayItemTwo);
-        return view('prueba-logica', compact('myArrayItemOne', 'highNumber', 'myArrayItemTwo', 'histogram'));
+        $maxRepeat = $this->getMaxRepeat($myArrayItemThree);
+        return view('prueba-logica', compact(
+            'myArrayItemOne',
+            'highNumber',
+            'myArrayItemTwo',
+            'histogram',
+            'myArrayItemThree',
+            'maxRepeat'
+        ));
+    }
+
+    public function getMaxRepeat($array)
+    {
+        $cuenta = array_count_values($array);
+        arsort($cuenta);
+        $maxRepeat = [];
+        $maxRepeat[] = ['number' => key($cuenta), 'repeat' => current($cuenta)];
+        return $maxRepeat; //tengo el q más se repite, ahora falta saber cuantas veces se repite
     }
 
     public function getRandomNumbers($min, $max, $quantity)
