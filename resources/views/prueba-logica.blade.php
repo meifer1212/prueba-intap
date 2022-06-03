@@ -66,4 +66,7 @@
             </div>
         </div>
     </div>
+    <div class="text-center text-gray-500 p-2">
+        <span>Creado por Meifer Rodriguez para Intap SAS.</span>
+    </div>
 </x-app-layout>
