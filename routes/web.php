@@ -28,4 +28,5 @@ Route::middleware([
     Route::get('/prueba-logica', [LogicTestController::class,'index'])->name('prueba-logica');
 
     Route::get('/prueba-tecnica', [TechnicalTestController::class,'index'])->name('prueba-tecnica');
+    Route::post('/prueba-tecnica/store', [TechnicalTestController::class,'store'])->name('prueba-tecnica.store');
 });
