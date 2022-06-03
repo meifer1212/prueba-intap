@@ -45,7 +45,7 @@ class TechnicalTestController extends Controller
         $horas_actividades_anteriores = Activity::where('user_id', Auth::user()->id)->where('activity', 'like', $request->activity)->sum('hours');
         if (($horas_actividades_anteriores + $request->hours) > 8) {
             $horas_disponibles = 8 - $horas_actividades_anteriores;
-            return redirect()->back()->withErrors(['hours' => "Las horas totales para la actividad superan las 8 horas. Horas disponibles: $horas_disponibles"]);
+            return redirect()->back()->withErrors(['hours' => "Las horas totales para la actividad superan las 8 horas. Horas disponibles: $horas_disponibles"])->withInput();
         }
         Activity::create([
             'user_id' => Auth::user()->id,
